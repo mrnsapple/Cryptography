@@ -25,42 +25,42 @@ void print_key(int **key, int len, int lines, int columns)
         int     x = -1;
 	int	y = 0;
 	int	sum;
-	int	copy_size = lines;
+	int	copy_size = columns;
 	int	area = lines*columns;
         //printf("keyleng:%d\n", len);                                        
-	my_putstr("Key matrix :\n");
-        for (sum = 0; sum < area; sum++)
+	for (sum = 0; sum < area; sum++)
         {
 		x++;
                 my_put_nbr(key[y][x]);
 		
-                if (sum == lines-1)
+                if (sum == columns-1)
 		{
                         my_putchar ('\n');
 			x = -1;
 			y++;
-                        lines = lines + copy_size;
+                        columns = columns + copy_size;
                 }
                 else
                         my_putchar ('\t');
 	}
 }
 
-int **get_key(char *av, int size, int key_lenght)
+int **get_key(char *av, int rows,int lines, int key_lenght)
 {
         //int     i;
 	int	**key;
 
-	my_putstr("size:");
-	my_put_nbr(size);
+	my_putstr("lines:");
+	my_put_nbr(lines);
 	my_putstr(",key_lenght:");
 	my_put_nbr(key_lenght);
 	my_putchar('\n');
 		
 	//printf("size:%d,lenght:%d\n", size, key_lenght);
-	key = malloca(size,size);
-	key = feed_array(key, av, size, size, key_lenght); 
-	print_key(key, key_lenght, size,size);
+	key = malloca(lines,rows);
+	key = feed_array(key, av, lines, rows, key_lenght); 
+	my_putstr("Key matrix :\n");
+	print_key(key, key_lenght, lines,rows);
 
         return (key);
 }

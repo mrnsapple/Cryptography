@@ -7,7 +7,20 @@
 
 #ifndef LIST_H_
 #define LIST_H_
+typedef struct sentence_t
+{
+	int     **array;
+	int	lines;
+	int	lenght;
+}text;
 
+typedef struct key_t
+{
+	int	**key;
+	int	size;
+	int	lenght;
+}
+	
 typedef struct check_struct
 {
         char arg;
@@ -15,7 +28,7 @@ typedef struct check_struct
 }check_struct;
 
 int key_lengh(char *av);
-int **get_key(char *av, int size, int key_lenght);
+int **get_key(char *av, int rows,int lines, int key_lenght);
 int matrix_size(char *av);
 void print_key(int **key, int len, int lines, int columns);
 int **malloca(int lines, int columns);
