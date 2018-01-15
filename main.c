@@ -60,16 +60,16 @@ text *sentence(char *av, char *av2)
 
 void multiply(char **av)
 {
-	/*text	*a;
+	text	*a;
 	key	*b;
-	int	i = 0;
+	int	i;
 	int	x = 0;
 	int	y = 0;
-	*/
+       
 	keya(av[2]);
 	sentence(av[1],av[2]);
-	/*while (
-	  a->key[0][0] == a->key[y][x] * */
+	for (i = 0; i < a->lenght; i++)
+		a->key[0][0] == a->key[y][x]; 
 }
 
 int main (int ac, char **av)
