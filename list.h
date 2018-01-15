@@ -19,7 +19,7 @@ typedef struct key_t
 	int	**key;
 	int	size;
 	int	lenght;
-}
+}key;
 	
 typedef struct check_struct
 {
