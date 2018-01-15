@@ -34,7 +34,10 @@ void print_key(int **key, int len, int lines, int columns);
 int **malloca(int lines, int columns);
 int **feed_array(int **key, char *str, int lines,\
                   int columns, int key_lenght);
-
+void multiply(char **av);
+void matrix2(text *a, key *b);
+text *sentence(char *av, char *av2);
+key *keya(char *av);
 void my_putchar(char c);
 int my_putstr(char  *str);
 int my_put_nbr(int nb);
