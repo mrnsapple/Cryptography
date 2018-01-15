@@ -36,6 +36,10 @@ key *keya(char *av)
 	a->lenght = key_lengh(av);
         a->size = matrix_size(av);
 	a->key = get_key(av, a->size, a->size, a->lenght);
+	my_putstr("Key matrix :\n");
+        print_key(a->key, a->lenght, a->size,a->size);
+
+
 	return (a);
 }
 
@@ -52,31 +56,55 @@ text *sentence(char *av, char *av2)
 	//printf("lengh%d\n",lenght);
 	while ((float)a->lines < y)
 		a->lines++;
-	my_put_nbr(a->lines);
+	//my_put_nbr(a->lines);
 	a->array = get_key(av,size,a->lines,a->lenght);
 
 	return (a);
 }
 
+void matrix2(text *a, key *b)
+{
+	int	x;
+	int	y = 0;
+	int	i;
+	int	**result;
+	
+	result = malloca(a->lines, b->size);
+	
+	for (i = 0; i < a->lines; i++)
+	{
+		x = 0;
+		//multiply 1 linea
+		result[y][x] = a->array[y][x] * b->key[0][0]+	\
+			a->array[y][x+1] * b->key[1][0];
+                //multiply 2 linea
+		result[y][x+1] = a->array[y][x] * b->key[0][1]+	\
+			a->array[y][x+1] * b->key[1][1];
+		
+		y++;
+	}
+	//my_put_nbr(a->array[0][1]);
+	my_putchar('\n');
+	print_key(result, a->lenght,a->lines,b->size);
+}
+	
 void multiply(char **av)
 {
 	text	*a;
 	key	*b;
-	int	i;
-	int	x = 0;
-	int	y = 0;
+	//int	i;
        
-	keya(av[2]);
-	sentence(av[1],av[2]);
-	for (i = 0; i < a->lenght; i++)
-		a->key[0][0] == a->key[y][x]; 
+	b = keya(av[2]);
+	a = sentence(av[1],av[2]);
+	if (b->size == 2)
+	{
+		matrix2(a,b);
+	}
 }
 
 int main (int ac, char **av)
 {
 	error(ac);
 	multiply(av);
-	//get_key(av[1]);
-		
 }
 	
