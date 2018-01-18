@@ -35,12 +35,12 @@ text *sentence(char *av, char *av2)
         a->lenght = key_lengh(av);
         size = matrix_size(av2);
         y = (float)a->lenght / size;
-        //printf("lengh%d\n",lenght);                                                                                             
+ 
         while ((float)a->lines < y)
                 a->lines++;
-        //my_put_nbr(a->lines);                                                                                                   
+ 
         a->array = get_key(av,size,a->lines,a->lenght);
-        my_putstr("\nEncrypted message:\n");
+        my_putstr("\nEncrypted message :\n");
 	//print_key(a->array, a->lenght, a->lines,size);
 	return (a);
 }
@@ -77,9 +77,7 @@ void matrix(text *a, key *b)
 			x = 0;
 			while (x < b->size)
 			{
-				//printf("before:%d\n",result[y][x2]);#
-				//			printf("array:%d\n", a->array[y][x]);
-				//printf("key:%d\n", b->key[x][y]);
+			
 				result[y][x2] = result[y][x2] + a->array[y][x] * b->key[x][x2];
 				
 				x++;

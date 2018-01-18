@@ -54,7 +54,8 @@ void print_array(int **key, int len, int lines, int columns)
 	int     area = lines*columns;
 	int	a = 14;
 	int	copy_a = 14;
-        for (sum = 0; sum < area && sum < len; sum++)
+
+	for (sum = 0; sum < area; sum++)
         {
                 x++;
                 my_put_nbr(key[y][x]);
