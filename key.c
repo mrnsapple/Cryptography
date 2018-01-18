@@ -12,13 +12,12 @@
 
 int key_lengh(char *av)
 {
-        int     i;
+	int	i;
+	
  	i = 0;
-
-        while(av[i] != '\0')
+        while (av[i] != '\0')
 	        i = i + 1;
-
-        return(i);
+        return (i);
 }
 void print_key(int **key, int len, int lines, int columns)
 {
