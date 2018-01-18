@@ -41,66 +41,10 @@ text *sentence(char *av, char *av2)
         //my_put_nbr(a->lines);                                                                                                   
         a->array = get_key(av,size,a->lines,a->lenght);
         my_putstr("\nEncripred message:");
-        return (a);
+	print_key(a->array, a->lenght, a->lines,size);
+	return (a);
 }
 
-void matrix2(text *a, key *b)
-{
- 	int     x;
-        int     y = 0;
-        int     i;
-        int     **result;
-     
-        result = malloca(a->lines, b->size);
-
-        for (i = 0; i < a->lines; i++)
-        {
-                x = 0;
-	        result[y][x] = a->array[y][x] * b->key[0][0]+   \
-                        a->array[y][x+1] * b->key[1][0];
-                //multiply 2 linea                                                                      
-		result[y][x+1] = a->array[y][x] * b->key[0][1]+ \
-                        a->array[y][x+1] * b->key[1][1];
-	
-                y++;
-	}
-        
-	my_putchar('\n');
-	print_key(result, a->lenght,a->lines,b->size);
-}
-
-void matrix3(text *a, key *b)
-{
-        int     x;
-        int     y = 0;
-        int     i;
-        int     **result;
-
-        result = malloca(a->lines, b->size);
-
-        for (i = 0; i < a->lines; i++)
-        {
-                x = 0;
-                result[y][x] = a->array[y][x] * b->key[0][0]+   \
-                        a->array[y][x+1] * b->key[1][0]+	\
-			a->array[y][x+2] * b->key[1][0];
-		result[y][x+1] = a->array[y][x] * b->key[0][1]+ \
-			a->array[y][x+1] * b->key[1][1]+	\
-			a->array[y][x+2] * b->key[2][1];
-		result[y][x+2] = a->array[y][x] * b->key[0][2]+ \
-			a->array[y][x+1] * b->key[1][2]+	\
-			a->array[y][x+1] * b->key[2][2];
-		
-	
-                y++;
-        }
-	my_putchar('\n');
-	my_put_nbr(a->lines);
-	my_putchar('\n');
-	my_put_nbr(a->lenght);
-	my_putchar('\n');
-        print_key(result, a->lenght,a->lines,b->size);
-}
 int **feed_result(int lines, int rows)
 {
 	int	i;
@@ -121,11 +65,11 @@ void matrix(text *a, key *b)
 	int     x = 0;
         int     y = 0;
 	int	x2 = 0;
-        int     i;
+        //int     i;
         int     **result;
 
 	result = feed_result(a->lines, b->size);
-	for (i = 0; i < a->lines; i++)
+	for (y = 0; y < a->lines; y++)
         {
 		x2 = 0;
 		while (x2 < b->size)
@@ -136,7 +80,7 @@ void matrix(text *a, key *b)
 				//printf("before:%d\n",result[y][x2]);#
 				printf("array:%d\n", a->array[y][x]);
 				printf("key:%d\n", b->key[x][y]);
-				result[y][x2] = result[y][x2] + a->array[y][x] * b->key[x][y];
+				result[y][x2] = result[y][x2] + a->array[y][x] * b->key[x][x2];
 				
 				x++;
 			}
@@ -163,11 +107,14 @@ void multiply(char **av)
 
         b = keya(av[2]);
 	a = sentence(av[1],av[2]);
-	if (b->size == 2)
+	/*if (b->size == 2)
 	{
 		matrix(a,b);
 		matrix2(a,b);
 	}
 	if(b->size == 3)
-                matrix(a,b);
+	{
+		matrix3(a,b);
+		matrix(a,b);}*/
+	matrix(a,b);
 }
