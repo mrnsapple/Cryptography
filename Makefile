@@ -7,8 +7,12 @@
 
 #ifndef MAKE
 #define MAKE
-SRC	=	printf.c	\
-		my_puts.c
+SRC	=	main.c		\
+		my_puts.c	\
+		multiply.c	\
+		my_puts.c	\
+		key.c
+		malloc.c
 
 OBJ	= 	$(SRC:.c=.o)
 

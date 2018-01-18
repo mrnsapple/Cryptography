@@ -50,24 +50,56 @@ void matrix2(text *a, key *b)
         int     y = 0;
         int     i;
         int     **result;
+	int	sum_x = 0;
+        result = malloca(a->lines, b->size);
+
+        for (i = 0; i < a->lines; i++)
+        {
+                x = 0;
+		while ( sum_x < b->size)
+		{
+		result[y][x] = a->array[y][x+sum] * b->key[0][0]+   \
+                        a->array[y][x+1] * b->key[1][0];
+                //multiply 2 linea                                                                      
+		result[y][x+1] = a->array[y][x] * b->key[0][1]+ \
+                        a->array[y][x+1] * b->key[1][1];
+		}
+                y++;
+        }
+        //my_put_nbr(a->array[0][1]);                                                                   
+	my_putchar('\n');
+	print_key(result, a->lenght,a->lines,b->size);
+}
+
+void matrix3(text *a, key *b)
+{
+        int     x;
+        int     y = 0;
+        int     i;
+        int     **result;
 
         result = malloca(a->lines, b->size);
 
         for (i = 0; i < a->lines; i++)
         {
                 x = 0;
-                //multiply 1 linea                                                                      
                 result[y][x] = a->array[y][x] * b->key[0][0]+   \
-                        a->array[y][x+1] * b->key[1][0];
-                //multiply 2 linea                                                                      
+                        a->array[y][x+1] * b->key[1][0]+\
+			a->array[y][x+2] * b->key[1][0];
 		result[y][x+1] = a->array[y][x] * b->key[0][1]+ \
-                        a->array[y][x+1] * b->key[1][1];
-
+			a->array[y][x+1] * b->key[1][1]+\
+			a->array[y][x+2] * b->key[2][1];
+		result[y][x+2] = a->array[y][x] * b->key[0][2]+ \
+			a->array[y][x+1] * b->key[1][2]+\
+			a->array[y][x+1] * b->key[2][2];
+		
+                }
                 y++;
         }
-        //my_put_nbr(a->array[0][1]);                                                                   
-	my_putchar('\n');
-	print_key(result, a->lenght,a->lines,b->size);
+        //my_put_nbr(a->array[0][1]);                                               \
+                                                                                     
+        my_putchar('\n');
+        print_key(result, a->lenght,a->lines,b->size);
 }
 
 
