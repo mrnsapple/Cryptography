@@ -57,7 +57,8 @@ void print_array(int **key, int len, int lines, int columns)
 	for (sum = 0; sum < area; sum++)
         {
                 x++;
-                my_put_nbr(key[y][x]);
+
+		printf("%d ",key[y][x]);
 	        	
 		if (sum == columns-1)
 		{
@@ -65,9 +66,9 @@ void print_array(int **key, int len, int lines, int columns)
 			y++;
 			columns = columns + copy_size;
 		}
-		my_putchar (' ');
+		//my_putchar (' ');
 	}
-	my_putchar('\n');
+	printf("\n");
 }
 
 int **get_key(char *av, int rows,int lines, int key_lenght)
