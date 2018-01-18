@@ -58,8 +58,9 @@ void print_array(int **key, int len, int lines, int columns)
         {
                 x++;
 
-		printf("%d ",key[y][x]);
-	        	
+		printf("%d",key[y][x]);
+		if(sum < area -1)
+			printf(" ");
 		if (sum == columns-1)
 		{
                         x = -1;
