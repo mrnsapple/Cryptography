@@ -73,6 +73,7 @@ void print_array(int **key, int len, int lines, int columns)
                 else
                         my_putchar (' ');
 	}
+	my_putchar('\n');
 }
 
 int **get_key(char *av, int rows,int lines, int key_lenght)
