@@ -5,8 +5,9 @@
 ## 
 ##
 
-#ifndef MAKE
-#define MAKE
+#ifndef _MAKE_
+#define _MAKE_
+
 SRC	=	main.c		\
 		my_puts.c	\
 		multiply.c	\
@@ -17,21 +18,18 @@ OBJ	= 	$(SRC:.c=.o)
 
 NAME	=	 103cipher
 
-RM	=	rm -rf
-
+RM	=	rm -f
 
 all:	$(NAME)
 
-$(NAME):	$(OBJ)
+$(NAME):
 	gcc -g -Wall -Werror -o $(NAME) $(SRC)
 clean:
-	$(RM) $(NAME)
+	$(RM) $(OBJ) *# *~
 
 fclean: clean
-	rm -rf $(OBJ) *~ *#
+	$(RM) $(NAME)
 
 re:	fclean all 
-
-
 
 #endif

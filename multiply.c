@@ -78,22 +78,23 @@ void matrix(text *a, key *b)
 			while (x < b->size)
 			{
 				//printf("before:%d\n",result[y][x2]);#
-				printf("array:%d\n", a->array[y][x]);
-				printf("key:%d\n", b->key[x][y]);
+				//			printf("array:%d\n", a->array[y][x]);
+				//printf("key:%d\n", b->key[x][y]);
 				result[y][x2] = result[y][x2] + a->array[y][x] * b->key[x][x2];
 				
 				x++;
 			}
-			printf("\nafter:%d\n",result[y][x2]);
+			//printf("\nafter:%d\n",result[y][x2]);
 			x2++;
 		}
 	}
+	/*
         my_putchar('\n');
 	my_put_nbr(a->lines);
 	my_putchar('\n');
 	my_put_nbr(a->lenght);
-	my_putchar('\n');
-	print_key(result, a->lenght,a->lines,b->size);
+	my_putchar('\n');*/
+	print_array(result, a->lenght,a->lines,b->size);
 }
 
 

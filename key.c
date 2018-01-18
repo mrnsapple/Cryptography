@@ -28,7 +28,7 @@ void print_key(int **key, int len, int lines, int columns)
 	int	copy_size = columns;
 	int	area = lines*columns;
         //printf("keyleng:%d\n", len);                                        
-	for (sum = 0; sum < area && sum < len; sum++)
+	for (sum = 0; sum < area; sum++)
         {
 		x++;
                 my_put_nbr(key[y][x]);
@@ -42,6 +42,31 @@ void print_key(int **key, int len, int lines, int columns)
                 }
                 else
                         my_putchar ('\t');
+	}
+}
+
+void print_array(int **key, int len, int lines, int columns)
+{
+        int     x = -1;
+        int     y = 0;
+        int     sum;
+	int     copy_size = columns;
+        int     area = lines*columns;
+        //printf("keyleng:%d\n", len);                                                
+        for (sum = 0; sum < area && sum < len; sum++)
+        {
+                x++;
+                my_put_nbr(key[y][x]);
+
+                if (sum == columns-1)
+                {
+                        my_putchar ('\n');
+                        x = -1;
+			y++;
+                        columns = columns + copy_size;
+                }
+		else
+                    	my_putchar ('\t');
 	}
 }
 

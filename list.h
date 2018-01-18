@@ -31,6 +31,7 @@ int key_lengh(char *av);
 int **get_key(char *av, int rows,int lines, int key_lenght);
 int matrix_size(char *av);
 void print_key(int **key, int len, int lines, int columns);
+void print_array(int **key, int len, int lines, int columns);
 int **malloca(int lines, int columns);
 int **feed_array(int **key, char *str, int lines,\
                   int columns, int key_lenght);
