@@ -82,10 +82,11 @@ void matrix(text *a, key *b)
 				
 				x++;
 			}
-			//printf("\nafter:%d\n",result[y][x2]);
+			//printf("result:%d\n",result[y][x2]);
 			x2++;
 		}
 	}
+	
 	print_array(result, a->lenght,a->lines,b->size);
 }
 
