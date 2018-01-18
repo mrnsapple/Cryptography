@@ -40,7 +40,7 @@ text *sentence(char *av, char *av2)
                 a->lines++;
         //my_put_nbr(a->lines);                                                                                                   
         a->array = get_key(av,size,a->lines,a->lenght);
-        my_putstr("\nEncripred message:\n");
+        my_putstr("\nEncrypted message:\n");
 	//print_key(a->array, a->lenght, a->lines,size);
 	return (a);
 }
