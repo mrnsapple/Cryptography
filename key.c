@@ -50,9 +50,10 @@ void print_array(int **key, int len, int lines, int columns)
         int     x = -1;
         int     y = 0;
         int     sum;
-	int     copy_size = columns;
-        int     area = lines*columns;
- 
+	int	copy_size = columns;
+	int     area = lines*columns;
+	int	a = 14;
+	int	copy_a = 14;
         for (sum = 0; sum < area && sum < len; sum++)
         {
                 x++;
@@ -64,8 +65,11 @@ void print_array(int **key, int len, int lines, int columns)
 			y++;
 			columns = columns + copy_size;
 		}
-		if(sum == 13)
+		if(sum == a-1)
+		{
 			my_putchar('\n');
+			a = a+copy_a;
+		}
                 else
                         my_putchar (' ');
 	}
