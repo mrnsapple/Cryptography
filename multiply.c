@@ -40,8 +40,8 @@ text *sentence(char *av, char *av2)
                 a->lines++;
         //my_put_nbr(a->lines);                                                                                                   
         a->array = get_key(av,size,a->lines,a->lenght);
-        my_putstr("\nEncripred message:");
-	print_key(a->array, a->lenght, a->lines,size);
+        my_putstr("\nEncripred message:\n");
+	//print_key(a->array, a->lenght, a->lines,size);
 	return (a);
 }
 
@@ -88,12 +88,6 @@ void matrix(text *a, key *b)
 			x2++;
 		}
 	}
-	/*
-        my_putchar('\n');
-	my_put_nbr(a->lines);
-	my_putchar('\n');
-	my_put_nbr(a->lenght);
-	my_putchar('\n');*/
 	print_array(result, a->lenght,a->lines,b->size);
 }
 

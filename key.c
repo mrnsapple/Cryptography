@@ -52,21 +52,22 @@ void print_array(int **key, int len, int lines, int columns)
         int     sum;
 	int     copy_size = columns;
         int     area = lines*columns;
-        //printf("keyleng:%d\n", len);                                                
+ 
         for (sum = 0; sum < area && sum < len; sum++)
         {
                 x++;
                 my_put_nbr(key[y][x]);
-
-                if (sum == columns-1)
-                {
-                        my_putchar ('\n');
+	        	
+		if (sum == columns-1)
+		{
                         x = -1;
 			y++;
-                        columns = columns + copy_size;
-                }
-		else
-                    	my_putchar ('\t');
+			columns = columns + copy_size;
+		}
+		if(sum == 13)
+			my_putchar('\n');
+                else
+                        my_putchar (' ');
 	}
 }
 
