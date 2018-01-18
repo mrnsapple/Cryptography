@@ -50,23 +50,21 @@ void matrix2(text *a, key *b)
         int     y = 0;
         int     i;
         int     **result;
-	int	sum_x = 0;
+     
         result = malloca(a->lines, b->size);
 
         for (i = 0; i < a->lines; i++)
         {
                 x = 0;
-		while ( sum_x < b->size)
-		{
-		result[y][x] = a->array[y][x+sum] * b->key[0][0]+   \
+	        result[y][x] = a->array[y][x] * b->key[0][0]+   \
                         a->array[y][x+1] * b->key[1][0];
                 //multiply 2 linea                                                                      
 		result[y][x+1] = a->array[y][x] * b->key[0][1]+ \
                         a->array[y][x+1] * b->key[1][1];
-		}
+	
                 y++;
-        }
-        //my_put_nbr(a->array[0][1]);                                                                   
+	}
+        
 	my_putchar('\n');
 	print_key(result, a->lenght,a->lines,b->size);
 }
@@ -84,23 +82,76 @@ void matrix3(text *a, key *b)
         {
                 x = 0;
                 result[y][x] = a->array[y][x] * b->key[0][0]+   \
-                        a->array[y][x+1] * b->key[1][0]+\
+                        a->array[y][x+1] * b->key[1][0]+	\
 			a->array[y][x+2] * b->key[1][0];
 		result[y][x+1] = a->array[y][x] * b->key[0][1]+ \
-			a->array[y][x+1] * b->key[1][1]+\
+			a->array[y][x+1] * b->key[1][1]+	\
 			a->array[y][x+2] * b->key[2][1];
 		result[y][x+2] = a->array[y][x] * b->key[0][2]+ \
-			a->array[y][x+1] * b->key[1][2]+\
+			a->array[y][x+1] * b->key[1][2]+	\
 			a->array[y][x+1] * b->key[2][2];
 		
-                }
+	
                 y++;
         }
-        //my_put_nbr(a->array[0][1]);                                               \
-                                                                                     
-        my_putchar('\n');
+	my_putchar('\n');
+	my_put_nbr(a->lines);
+	my_putchar('\n');
+	my_put_nbr(a->lenght);
+	my_putchar('\n');
         print_key(result, a->lenght,a->lines,b->size);
 }
+int **feed_result(int lines, int rows)
+{
+	int	i;
+	int	g;
+	int	**result;
+	
+	result = malloca(lines, rows);
+	for (i = 0; i < lines; i++)
+	{
+		for(g = 0; g < rows; g++)
+			result[i][g] = 0;
+	}
+	
+	return (result);
+}
+void matrix(text *a, key *b)
+{
+	int     x = 0;
+        int     y = 0;
+	int	x2 = 0;
+        int     i;
+        int     **result;
+
+	result = feed_result(a->lines, b->size);
+	for (i = 0; i < a->lines; i++)
+        {
+		x2 = 0;
+		while (x2 < b->size)
+		{
+			x = 0;
+			while (x < b->size)
+			{
+				//printf("before:%d\n",result[y][x2]);#
+				printf("array
+				result[y][x2] = result[y][x2] + a->array[y][x] * b->key[x][y];
+				
+				x++;
+			}
+			printf("\nafter:%d\n",result[y][x2]);
+			x2++;
+		}
+	}
+        my_putchar('\n');
+	my_put_nbr(a->lines);
+	my_putchar('\n');
+	my_put_nbr(a->lenght);
+	my_putchar('\n');
+	print_key(result, a->lenght,a->lines,b->size);
+}
+
+
 
 
 void multiply(char **av)
@@ -112,7 +163,10 @@ void multiply(char **av)
         b = keya(av[2]);
 	a = sentence(av[1],av[2]);
 	if (b->size == 2)
-                matrix2(a,b);
+	{
+		matrix(a,b);
+		matrix2(a,b);
+	}
 	if(b->size == 3)
-                matrix3(a,b);
+                matrix(a,b);
 }

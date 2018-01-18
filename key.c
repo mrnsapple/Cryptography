@@ -28,7 +28,7 @@ void print_key(int **key, int len, int lines, int columns)
 	int	copy_size = columns;
 	int	area = lines*columns;
         //printf("keyleng:%d\n", len);                                        
-	for (sum = 0; sum < area; sum++)
+	for (sum = 0; sum < area && sum < len; sum++)
         {
 		x++;
                 my_put_nbr(key[y][x]);

@@ -10,35 +10,27 @@
 SRC	=	main.c		\
 		my_puts.c	\
 		multiply.c	\
-		my_puts.c	\
-		key.c
+		key.c		\
 		malloc.c
 
 OBJ	= 	$(SRC:.c=.o)
 
-OBC	=	$(*:.c =.o)
+NAME	=	 103cipher
 
-NAME	=	 libmyss.a
-
-NAME2	=	my_printf
+RM	=	rm -rf
 
 
-all:	$(SRC)
-	gcc -g -Wall -Werror -o $(NAME2) $(SRC) 
+all:	$(NAME)
 
-hihi:	$(OBC)
-	gcc -c $(OBC)
-
-hehe:	$(OBJ)
-	ar rc $(NAME) $(OBJ)
-
+$(NAME):	$(OBJ)
+	gcc -g -Wall -Werror -o $(NAME) $(SRC)
 clean:
-	rm -f *.o
+	$(RM) $(NAME)
 
 fclean: clean
-	rm $(NAME)
+	rm -rf $(OBJ) *~ *#
 
-re:	fclean all library
+re:	fclean all 
 
 
 

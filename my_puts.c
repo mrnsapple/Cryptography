@@ -18,9 +18,8 @@ void my_putchar(char c)
 int my_putstr(char *str)
 {
 	
-	int	i;
-	i = 0;
-	//cerbol
+	int	i = 0;
+	
 	while(str[i] != '\0')
 	{
 		my_putchar(str[i]);
@@ -41,23 +40,26 @@ int	nb_divide(int nb)
 	{
 		div = div * 10;
 	}
+	
 	return (div / 10);
 }
 int	my_put_nbr(int nb)
 {
+	int	div;
+
 	if(nb < 0)
 	{
 		my_putchar('-');
 		nb = nb * -1;
 	}
-	int	div;
-        div = nb_divide(nb);
+	div = nb_divide(nb);
 	while (div != 0)
 	{
 		my_putchar(nb / div + '0');
 		nb = nb % div;
 		div = div / 10;		
 	}
+
 	return (0);
 }
 	      
