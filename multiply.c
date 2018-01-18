@@ -134,7 +134,8 @@ void matrix(text *a, key *b)
 			while (x < b->size)
 			{
 				//printf("before:%d\n",result[y][x2]);#
-				printf("array
+				printf("array:%d\n", a->array[y][x]);
+				printf("key:%d\n", b->key[x][y]);
 				result[y][x2] = result[y][x2] + a->array[y][x] * b->key[x][y];
 				
 				x++;
