@@ -18,7 +18,7 @@ key *keya(char *av)
         a->lenght = key_lengh(av);
         a->size = matrix_size(av);
         a->key = get_key(av, a->size, a->size, a->lenght);
-        my_putstr("Key matrix :\n");
+        printf("Key matrix :\n");
         print_key(a->key, a->lenght, a->size,a->size);
 
         return (a);
@@ -40,7 +40,7 @@ text *sentence(char *av, char *av2)
                 a->lines++;
  
         a->array = get_key(av,size,a->lines,a->lenght);
-        my_putstr("\nEncrypted message :\n");
+        printf("\nEncrypted message :\n");
 	//print_key(a->array, a->lenght, a->lines,size);
 	return (a);
 }

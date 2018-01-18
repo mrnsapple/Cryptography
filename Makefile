@@ -9,7 +9,6 @@
 #define _MAKE_
 
 SRC	=	main.c		\
-		my_puts.c	\
 		multiply.c	\
 		key.c		\
 		malloc.c

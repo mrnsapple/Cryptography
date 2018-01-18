@@ -31,17 +31,17 @@ void print_key(int **key, int len, int lines, int columns)
 	for (sum = 0; sum < area; sum++)
         {
 		x++;
-                my_put_nbr(key[y][x]);
+                printf("%d",key[y][x]);
 		
                 if (sum == columns-1)
 		{
-                        my_putchar ('\n');
+                        printf("\n");
 			x = -1;
 			y++;
                         columns = columns + copy_size;
                 }
                 else
-                        my_putchar ('\t');
+                        printf("\t");
 	}
 }
 
