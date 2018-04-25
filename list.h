@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** 
 ** File description:
-** 
+**by mrnsapple 
 */
 
 #ifndef LIST_H_
